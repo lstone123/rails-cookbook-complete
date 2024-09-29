@@ -1,0 +1,15 @@
+<h1><%= @category.name.capitalize %></h1>
+<ul>
+  <% @category.bookmarks.each do |bookmark| %>
+    <li style="list-style:none;">
+      <div style="display:flex;align-items:center;">
+      <h2 style="padding-right:8px;"><%= bookmark.recipe.name %> |</h2>
+      <%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+      <p><em>"<%= bookmark.recipe.description %>"</em></p>
+      <p>rating: <%= bookmark.recipe.rating %></p>
+    </li>
+  <% end %>
+  <%= link_to "add a recipe", new_category_bookmark_path(@category) %>
+</ul>
+<p><%= link_to "back to all categories", categories_path %></p>

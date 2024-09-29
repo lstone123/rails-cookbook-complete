@@ -1,0 +1,9 @@
+<h1>Add a new category to your cookbook</h1>
+
+
+<%= simple_form_for(@category) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit "add category" %>
+<% end %>
+
+<%= link_to "back to all categories", categories_path %>
